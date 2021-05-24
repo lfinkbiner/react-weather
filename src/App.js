@@ -8,6 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Weather App</h1>
         <Search />
+        <a href="https://github.com/lfinkbiner/react-weather">GitHub Repository</a>
       </header>
     </div>
   );
