@@ -12,7 +12,7 @@ export default function Search(props) {
     let wind = response.data.wind.speed;
     let humidity = response.data.main.humidity;
     setMessage(<ul>
-    <li>City:${city}</li>
+    <li>{city}</li>
     <li>Temperature: {temp}°C</li>
     <li>Wind: {wind}km/hr</li>
     <li>Humidity: {humidity}%</li>
