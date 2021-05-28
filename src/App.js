@@ -7,11 +7,10 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-      <header className="App-header">
-        <h1>Weather App</h1>
         <Search />
+      <footer className="App-footer">
         <a href="https://github.com/lfinkbiner/react-weather">GitHub Repository</a>
-      </header>
+      </footer>
       </div>
     </div>
   );

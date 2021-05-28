@@ -11,12 +11,32 @@ export default function Search(props) {
     let city = response.data.name;
     let wind = response.data.wind.speed;
     let humidity = response.data.main.humidity;
-    setMessage(<ul>
-    <li>{city}</li>
-    <li>Temperature: {temp}°C</li>
-    <li>Wind: {wind}km/hr</li>
-    <li>Humidity: {humidity}%</li>
-    </ul>);
+    setMessage(<div className="message">
+      <div className="row">
+        <div className="col6">
+          <ul>
+            <li><h2>{city}</h2></li>
+            <li>Date</li>
+            <li>Condition</li>
+          </ul>
+        </div>
+        <div className="col 6">
+        </div>
+      </div>
+      <div className="row mt-3">
+      <div className="col 6">
+        <img 
+        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+        alt="Mostly Cloudy"/>
+        <span className="temp">{temp}</span>
+        <span className="unit">°C|F</span>
+        </div>
+    <div className="col 6">
+      <ul>
+        <li>
+          Wind: {wind}km/hr</li>
+          <li>
+            Humidity: {humidity}%</li></ul></div></div></div>);
   }
 
   function handleSubmit(event) {
@@ -30,14 +50,16 @@ export default function Search(props) {
   }
   let form = (
     <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="type a city..." onChange={updateCity} />
-      <input type="submit" value="search" />
+      <div className="row">
+      <div className="col 9"><input type="search" placeholder="type a city..." className="form-control" autoFocus="on" onChange={updateCity} /></div>
+      <div className="col 3"><input type="submit" value="search" className="btn btn-primary"/></div>
+      </div>
     </form>
   );
   return (
     <div className="weather">
       {form}
-      <h2>{message}</h2>
+      {message}
     </div>
   );
 }
