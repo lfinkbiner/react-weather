@@ -14,6 +14,7 @@ export default function Search(props) {
     let city = response.data.name;
     let wind = response.data.wind.speed;
     let humidity = response.data.main.humidity;
+    let iconUrl =`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
     setMessage(<div className="message">
       <div className="row">
         <div className="col6">
@@ -28,9 +29,8 @@ export default function Search(props) {
       </div>
       <div className="row mt-3">
       <div className="col 6">
-        <img 
-        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-        alt="Mostly Cloudy"/>
+        <img
+        src={iconUrl}/>
         <span className="temp">{temp}</span>
         <span className="unit">°C|F</span>
         </div>
