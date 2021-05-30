@@ -30,7 +30,8 @@ export default function Search(props) {
       <div className="row mt-3">
       <div className="col 6">
         <img
-        src={iconUrl}/>
+        src={iconUrl}
+        alt = {description}/>
         <span className="temp">{temp}</span>
         <span className="unit">°C|F</span>
         </div>
