@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./weather.css";
+import FormattedDate from "./FormattedDate";
 
 export default function Search(props) {
   const [message, setMessage] = useState(null);
   const [city, setCity] = useState(null);
 
   function showWeather(response) {
+    let date = new Date(response.data.dt*1000);
+    let description = response.data.weather[0].description;
     let temp = Math.round(response.data.main.temp);
     let city = response.data.name;
     let wind = response.data.wind.speed;
@@ -16,8 +19,8 @@ export default function Search(props) {
         <div className="col6">
           <ul>
             <li><h2>{city}</h2></li>
-            <li>Date</li>
-            <li>Condition</li>
+            <li><FormattedDate date={date}/></li>
+            <li className="text-capitalize">{description}</li>
           </ul>
         </div>
         <div className="col 6">
